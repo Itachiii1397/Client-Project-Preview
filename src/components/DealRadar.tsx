@@ -8,14 +8,14 @@ interface DealRadarProps {
 
 export const DealRadar: React.FC<DealRadarProps> = ({ onSelectCategory }) => {
   const radarItems = [
-    { label: 'DIGITAL AIR FRYERS', discount: 'SAVE ₹516', icon: Flame, color: 'text-amber-400', category: 'Kitchen Appliances' as Category },
-    { label: 'PRO BEARD TRIMMERS', discount: 'UP TO 54% OFF', icon: Zap, color: 'text-yellow-400', category: 'Personal Care' as Category },
+    { label: 'PIGEON HEALTHIFRY AIR FRYER', discount: 'SAVE ₹516', icon: Flame, color: 'text-amber-400', category: 'Kitchen Appliances' as Category },
+    { label: 'BRAUN SERIES 9 TRIMMER', discount: '54% OFF', icon: Zap, color: 'text-yellow-400', category: 'Personal Care' as Category },
     { label: 'YONEX GRAPHITE RACQUETS', discount: '50% OFF', icon: Sparkles, color: 'text-sky-400', category: 'Sports' as Category },
-    { label: '750W COPPER MIXERS', discount: 'SAVE ₹1,619', icon: TrendingDown, color: 'text-emerald-400', category: 'Kitchen Appliances' as Category },
-    { label: 'HAVELLS INSTANT GEYSERS', discount: 'SAVE ₹5,631', icon: Flame, color: 'text-amber-400', category: 'House Holds' as Category },
-    { label: 'SMARTWATCHES WITH CALLING', discount: '₹1,049 ONLY', icon: Zap, color: 'text-purple-400', category: 'Daily Essentials' as Category },
-    { label: 'BABY DIAPERS JUMBO PACK', discount: 'SAVE ₹182', icon: Sparkles, color: 'text-pink-400', category: 'Baby Care' as Category },
-    { label: 'PREMIUM INNERWEAR PACKS', discount: 'FROM ₹80', icon: TrendingDown, color: 'text-blue-400', category: 'Undergarments' as Category },
+    { label: 'PREETHI ZODIAC MIXER', discount: 'SAVE ₹3,548', icon: TrendingDown, color: 'text-emerald-400', category: 'Kitchen Appliances' as Category },
+    { label: 'HAVELLS INSTANT GEYSER', discount: 'SAVE ₹5,631', icon: Flame, color: 'text-amber-400', category: 'Household' as Category },
+    { label: 'SMARTWATCH JET BLACK', discount: '₹1,049 ONLY', icon: Zap, color: 'text-purple-400', category: 'Personal Care' as Category },
+    { label: 'HUGGIES WONDER PANTS', discount: 'SAVE ₹182', icon: Sparkles, color: 'text-pink-400', category: 'Baby Care' as Category },
+    { label: 'RUPA TOPMAN MENS VEST', discount: 'SAVE ₹24', icon: TrendingDown, color: 'text-blue-400', category: 'Undergarments' as Category },
   ];
 
   // Repeat twice for seamless infinite marquee loop

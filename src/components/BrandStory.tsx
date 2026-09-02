@@ -7,53 +7,59 @@ export const BrandStory: React.FC = () => {
     {
       num: '01',
       title: 'SOURCE',
-      desc: 'Carefully curating open-box, overstock, and surplus inventory from recognized brands.',
+      desc: 'Curating open-box, overstock, and surplus inventory from recognized brands.',
       icon: PackageCheck,
     },
     {
       num: '02',
-      title: 'QUALITY CHECK',
-      desc: 'Each physical product is inspected, tested for complete functionality, and verified.',
+      title: 'CHECK',
+      desc: 'Every physical product is inspected, tested for full functionality, and authenticated.',
       icon: ShieldCheck,
     },
     {
       num: '03',
-      title: 'DEAL PRICE',
-      desc: 'Priced with transparent markdown directly passing savings to retail customers.',
+      title: 'PRICE',
+      desc: 'Transparent markdown calculated against verified market reference benchmarks.',
       icon: Sparkles,
     },
     {
       num: '04',
+      title: 'DEAL',
+      desc: 'Direct WhatsApp order confirmation with real photos and stock reservation.',
+      icon: MessageCircle,
+    },
+    {
+      num: '05',
       title: 'YOU SAVE',
-      desc: 'Enjoy authentic branded appliances and essentials far below standard online market prices.',
+      desc: 'Enjoy authentic branded appliances and essentials with maximum cash in your pocket.',
       icon: Award,
     },
   ];
 
   const pillars = [
     {
-      title: 'QUALITY CHECKED',
-      desc: 'Products are physically inspected and tested before being offered on our floor.',
+      title: 'REAL CATALOG PRODUCTS',
+      desc: 'Every single listed item corresponds to authentic physical inventory.',
       icon: ShieldCheck,
       color: 'text-emerald-400',
     },
     {
-      title: 'BRANDED INVENTORY',
-      desc: 'Shop recognizable, leading brands across multiple consumer categories with confidence.',
+      title: 'TRANSPARENT PRICING',
+      desc: 'No hidden conditions. Clear Big Deals price alongside honest reference values.',
       icon: Award,
       color: 'text-[#E5A919]',
     },
     {
-      title: 'VALUE FIRST',
-      desc: 'Every single price is engineered around real, tangible cash savings for your household.',
-      icon: Sparkles,
-      color: 'text-[#93C5FD]',
-    },
-    {
-      title: 'WHATSAPP SUPPORT',
-      desc: 'Talk directly with our team before ordering to confirm stock, pictures, and delivery.',
+      title: 'DIRECT WHATSAPP SUPPORT',
+      desc: 'Direct communication with our team before ordering to confirm stock, pictures, and delivery.',
       icon: MessageCircle,
       color: 'text-[#25D366]',
+    },
+    {
+      title: 'PRODUCT-LEVEL SAVINGS',
+      desc: 'Real, mathematical savings calculated on each deal to guarantee consumer value.',
+      icon: Sparkles,
+      color: 'text-[#93C5FD]',
     },
   ];
 
@@ -64,54 +70,47 @@ export const BrandStory: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1E40AF]/20 border border-[#3B82F6]/40 text-[#93C5FD] text-xs font-bold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[#E5A919]" />
-            <span>The Big Deals Concept</span>
+            <span>THE BIG DEALS PHILOSOPHY</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-white font-heading tracking-tight">
-            WHY <span className="text-[#E5A919]">BIG DEALS?</span>
+            HOW <span className="text-[#E5A919]">BIG DEALS WORK</span>
           </h2>
           <p className="mt-4 text-lg sm:text-xl text-slate-200 font-medium">
-            &ldquo;Good products shouldn&apos;t always come with big prices.&rdquo;
+            &ldquo;Before you buy online, check Big Deals.&rdquo;
           </p>
           <p className="mt-3 text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl mx-auto">
-            Big Deals brings branded products, open-box inventory, and special-value merchandise together in one place, giving Indian customers direct access to premier items at aggressively competitive prices.
+            We bring genuine branded products, surplus inventory, and special-value merchandise directly to customers with honest reference pricing and fast WhatsApp ordering.
           </p>
         </div>
 
-        {/* 4-Step Visual Process (SOURCE -> QUALITY CHECK -> DEAL PRICE -> YOU SAVE) */}
+        {/* 5-Step Visual Process (SOURCE -> CHECK -> PRICE -> DEAL -> YOU SAVE) */}
         <div className="mb-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative">
             {steps.map((step, idx) => {
               const Icon = step.icon;
               return (
                 <div
                   key={step.num}
-                  className="bg-[#0B172E] p-6 rounded-2xl border border-slate-800 relative flex flex-col justify-between hover:border-[#1E40AF] transition-all group"
+                  className="bg-[#0B172E] p-5 rounded-2xl border border-slate-800 relative flex flex-col justify-between hover:border-[#1E40AF] transition-all group"
                 >
                   {/* Step Number */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-black text-slate-600 font-mono-price group-hover:text-[#E5A919] transition-colors">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xl font-black text-slate-600 font-mono-price group-hover:text-[#E5A919] transition-colors">
                       {step.num}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center text-[#E5A919]">
-                      <Icon className="w-5 h-5" />
+                    <div className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center text-[#E5A919]">
+                      <Icon className="w-4 h-4" />
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-black text-white font-heading tracking-wide">
+                    <h3 className="text-base font-black text-white font-heading tracking-wide">
                       {step.title}
                     </h3>
-                    <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                    <p className="mt-1.5 text-xs text-slate-400 leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
-
-                  {/* Arrow for desktop */}
-                  {idx < steps.length - 1 && (
-                    <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-[#1E40AF] border border-[#3B82F6] flex items-center justify-center text-white text-xs">
-                      →
-                    </div>
-                  )}
                 </div>
               );
             })}

@@ -17,7 +17,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [minDiscount, setMinDiscount] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(6000);
+  const [maxPrice, setMaxPrice] = useState(12000);
   const [sortBy, setSortBy] = useState<FilterState['sortBy']>('savings-high');
   const [showFiltersMobile, setShowFiltersMobile] = useState(false);
 
@@ -59,7 +59,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
     onSelectCategory('All');
     setSearchQuery('');
     setMinDiscount(0);
-    setMaxPrice(6000);
+    setMaxPrice(12000);
     setSortBy('savings-high');
   };
 
@@ -188,9 +188,9 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
             </span>
             <input
               type="range"
-              min="500"
-              max="6000"
-              step="250"
+              min="100"
+              max="12000"
+              step="200"
               value={maxPrice}
               onChange={(e) => setMaxPrice(parseInt(e.target.value))}
               className="h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-[#E5A919] w-32"

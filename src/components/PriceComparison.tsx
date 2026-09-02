@@ -5,17 +5,18 @@ import { useCart } from '../context/CartContext';
 import { TrendingDown, Sparkles, MessageCircle, ShoppingBag, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export const PriceComparison: React.FC = () => {
-  // Select top high-saving products for comparison switcher
+  // Select top high-saving verified real catalog products
   const comparisonItems = [
-    PRODUCTS.find((p) => p.id === 'cello-mixer-grinder-750w') || PRODUCTS[0],
-    PRODUCTS.find((p) => p.id === 'preethi-mixer-grinder-zodiac') || PRODUCTS[1],
-    PRODUCTS.find((p) => p.id === 'braun-beard-trimmer-series-9') || PRODUCTS[2],
-    PRODUCTS.find((p) => p.id === 'havells-instant-geyser-3l') || PRODUCTS[3],
-    PRODUCTS.find((p) => p.id === 'yonex-astrox-37i-graphite') || PRODUCTS[4],
-    PRODUCTS.find((p) => p.id === 'pigeon-healthifry-air-fryer') || PRODUCTS[5],
+    PRODUCTS.find((p) => p.canonicalId === '1463') || PRODUCTS[0], // Pigeon Healthifry (Save ₹516)
+    PRODUCTS.find((p) => p.canonicalId === '2489') || PRODUCTS[1], // Havells Instant Geyser (Save ₹5,631)
+    PRODUCTS.find((p) => p.canonicalId === '2953') || PRODUCTS[2], // Braun Series 9 Trimmer (Save ₹4,360)
+    PRODUCTS.find((p) => p.canonicalId === '2964') || PRODUCTS[3], // Wahl Magic Clip (Save ₹6,540)
+    PRODUCTS.find((p) => p.canonicalId === '3709') || PRODUCTS[4], // Nivia Gym Ball (Save ₹824)
+    PRODUCTS.find((p) => p.canonicalId === '1916') || PRODUCTS[5], // Preethi Mixer Grinder (Save ₹3,548)
   ];
 
   const [selectedProduct, setSelectedProduct] = useState<Product>(comparisonItems[0]);
+  const [imageError, setImageError] = useState(false);
   const { addToCart, celebrateSavings } = useCart();
 
   const savingsPct = selectedProduct.savingsPercentage;
@@ -77,12 +78,21 @@ export const PriceComparison: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col items-center sm:items-start text-center sm:text-left">
               <div className="relative group w-full max-w-sm mx-auto sm:mx-0">
                 <div className="w-full h-72 sm:h-80 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-center justify-center p-6 overflow-hidden relative">
-                  <img
-                    src={selectedProduct.image}
-                    alt={selectedProduct.name}
-                    className="max-h-full max-w-full object-contain filter drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
+                  {!imageError && selectedProduct.image ? (
+                    <img
+                      src={selectedProduct.image}
+                      alt={selectedProduct.name}
+                      onError={() => setImageError(true)}
+                      className="max-h-full max-w-full object-contain filter drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center text-center p-4 bg-[#0B172E] border border-dashed border-slate-700 rounded-xl text-slate-400">
+                      <span className="text-[10px] font-black tracking-widest text-[#E5A919] uppercase">BIG DEALS</span>
+                      <span className="text-xs font-bold text-slate-300 mt-1">PRODUCT IMAGE</span>
+                      <span className="text-[10px] text-slate-500 mt-0.5">IMAGE COMING FROM CATALOG</span>
+                    </div>
+                  )}
                   {/* Badge */}
                   <div className="absolute top-3 left-3 bg-[#050B17]/90 backdrop-blur-md px-3 py-1 rounded-lg border border-slate-700 text-[11px] font-bold text-slate-200 uppercase">
                     {selectedProduct.condition}

@@ -305,8 +305,8 @@ export const Hero3D: React.FC<Hero3DProps> = ({ onExploreClick, onDealRoomClick 
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E5A919] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E5A919]"></span>
           </span>
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-200">
-            Open-Box & Surplus Stock <span className="text-[#E5A919]">| Aggressively Discounted</span>
+          <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#FFE27A]">
+            BIG DEALS <span className="text-slate-300 font-normal">| RETAIL SAVINGS SHOWROOM</span>
           </span>
         </div>
 
@@ -314,20 +314,22 @@ export const Hero3D: React.FC<Hero3DProps> = ({ onExploreClick, onDealRoomClick 
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-white font-heading tracking-tight leading-[1.08] max-w-4xl">
           BRANDED PRODUCTS. <br className="hidden sm:inline" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FBBF24] via-[#F59E0B] to-[#FFE27A]">
-            OPEN-BOX PRICES.
+            SMARTER DEALS.
           </span>
         </h1>
 
         {/* Subheading */}
         <p className="mt-5 text-lg sm:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed">
-          Discover genuine branded products across kitchen, sports, personal care, and home essentials at prices designed to beat ordinary retail markups.
+          Discover branded products, special inventory and everyday essentials at prices worth checking before you buy elsewhere.
         </p>
 
-        {/* Value Pitch & Questions */}
+        {/* Value Pitch & Recurring Brand Motif */}
         <div className="mt-3 text-sm sm:text-base font-semibold text-[#93C5FD] flex items-center justify-center gap-3">
-          <span>Why pay online-market prices?</span>
+          <span className="italic text-slate-300">&ldquo;Check the deal before you check out.&rdquo;</span>
           <span className="w-1.5 h-1.5 rounded-full bg-[#E5A919]" />
-          <span className="text-white font-bold">Find branded products. Pay less.</span>
+          <span className="text-white font-black tracking-wide uppercase text-xs sm:text-sm bg-slate-900/90 px-3 py-1 rounded-lg border border-slate-800">
+            CHECK THE PRICE. THEN CHECK BIG DEALS.
+          </span>
         </div>
 
         {/* Call to Actions */}
@@ -357,7 +359,7 @@ export const Hero3D: React.FC<Hero3DProps> = ({ onExploreClick, onDealRoomClick 
           {/* 3D Deal Room Shortcut */}
           <button
             onClick={onDealRoomClick}
-            className="w-full sm:w-auto px-5 py-4 rounded-xl bg-slate-900/60 hover:bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700/60 font-semibold text-sm tracking-wide backdrop-blur-md transition-all flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-5 py-4 rounded-xl bg-slate-900/60 hover:bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700/60 font-semibold text-sm tracking-wide backdrop-blur-md transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <Sparkles className="w-4 h-4 text-[#E5A919]" />
             <span>Enter Deal Room</span>
@@ -390,7 +392,7 @@ export const Hero3D: React.FC<Hero3DProps> = ({ onExploreClick, onDealRoomClick 
 
         {/* Scroll down indicator */}
         <div className="mt-8 flex flex-col items-center opacity-60 hover:opacity-100 transition-opacity cursor-pointer" onClick={onExploreClick}>
-          <span className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">Scroll to Explore</span>
+          <span className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">Scroll to Discover</span>
           <ArrowDown className="w-4 h-4 text-[#E5A919] animate-bounce mt-1" />
         </div>
       </div>

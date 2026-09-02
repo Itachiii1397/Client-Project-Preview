@@ -15,11 +15,10 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onNavigate, ac
     { label: 'HOME', icon: Home, id: 'hero' },
     { label: 'SHOP', icon: ShoppingBag, id: 'catalog' },
     { label: 'DEALS', icon: Flame, id: 'todays-deals' },
-    { label: 'ROOM', icon: Sparkles, id: 'deal-room' },
   ];
 
   return (
-    <nav aria-label="Mobile Navigation" className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#050B17]/95 backdrop-blur-lg border-t border-slate-800 px-3 py-2">
+    <nav aria-label="Mobile Navigation" className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#050B17]/95 backdrop-blur-lg border-t border-slate-800 px-2 py-2">
       <div className="grid grid-cols-5 gap-1 items-center text-center">
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -53,6 +52,17 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onNavigate, ac
           </div>
           <span className="text-[10px] font-bold uppercase tracking-wider">CART</span>
         </button>
+
+        {/* WhatsApp Direct Action */}
+        <a
+          href={`https://wa.me/${PRIMARY_WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi Big Deals, I would like to check current deals!')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center justify-center py-1 rounded-xl text-[#25D366] hover:text-emerald-300"
+        >
+          <MessageCircle className="w-4 h-4 mb-0.5 fill-current" />
+          <span className="text-[10px] font-black uppercase tracking-wider">WHATSAPP</span>
+        </a>
       </div>
     </nav>
   );

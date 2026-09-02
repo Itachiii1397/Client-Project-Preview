@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
           {/* Col 2: Quick Links */}
           <div className="space-y-3">
             <h4 className="text-white font-bold text-sm uppercase tracking-wider font-heading">
-              Quick Links
+              Quick Navigation
             </h4>
             <ul className="space-y-2">
               <li>
@@ -59,10 +59,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
               </li>
               <li>
                 <button
+                  onClick={() => onNavigate('hero-deal-spotlight')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Today&apos;s Big Deal
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => onNavigate('todays-deals')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Today&apos;s Big Deals
+                  Featured Deals
                 </button>
               </li>
               <li>
@@ -75,6 +83,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
               </li>
               <li>
                 <button
+                  onClick={() => onNavigate('concierge')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Deal Concierge
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => onNavigate('deal-room')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
@@ -83,10 +99,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('savings-calculator')}
+                  onClick={() => onNavigate('price-check')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Savings Calculator
+                  Price Check
                 </button>
               </li>
               <li>
@@ -94,7 +110,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
                   onClick={() => onNavigate('about')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Why Big Deals?
+                  How Big Deals Work
                 </button>
               </li>
             </ul>

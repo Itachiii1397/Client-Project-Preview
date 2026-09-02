@@ -47,7 +47,7 @@ const ZONES: Array<{
     position: [2, 0, 3],
   },
   {
-    id: 'House Holds',
+    id: 'Household',
     title: 'HOUSEHOLD & LIVING',
     tagline: 'Havells geysers, spin mops, steam irons & cleaners',
     color: 'from-emerald-500 to-teal-600',

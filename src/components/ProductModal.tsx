@@ -12,6 +12,7 @@ interface ProductModalProps {
 export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [imageError, setImageError] = useState(false);
   const { addToCart, celebrateSavings } = useCart();
 
   if (!product) return null;
@@ -25,7 +26,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
   };
 
   const handleWhatsApp = () => {
-    window.open(getProductWhatsAppUrl(product, quantity), '_blank');
+    window.open(getProductWhatsAppUrl(product), '_blank');
   };
 
   const getConditionInfo = (condition?: string) => {
@@ -42,17 +43,17 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
           bg: 'bg-[#050B17] text-emerald-300 border-emerald-500/40',
           desc: 'Factory-sealed condition direct from authorized distributor surplus.',
         };
-      case 'special inventory':
+      case 'special-inventory':
         return {
-          label: 'CLEARANCE / SURPLUS',
+          label: 'SPECIAL INVENTORY',
           bg: 'bg-[#050B17] text-sky-300 border-sky-500/40',
-          desc: 'Liquidation & volume clearance stock at deep markdown below standard market.',
+          desc: 'Direct wholesale liquidation & verified inventory batch.',
         };
       default:
         return {
           label: 'VERIFIED INVENTORY',
           bg: 'bg-[#050B17] text-slate-200 border-slate-700',
-          desc: 'Contact us directly on WhatsApp to confirm physical packaging and batch details.',
+          desc: 'Ask about physical packaging and batch condition on WhatsApp.',
         };
     }
   };
@@ -89,11 +90,20 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
 
             {/* Main Active Image */}
             <div className="w-full h-64 sm:h-72 flex items-center justify-center p-4">
-              <img
-                src={activeImage}
-                alt={product.name}
-                className="max-h-full max-w-full object-contain filter drop-shadow-2xl transition-all duration-300"
-              />
+              {!imageError && activeImage ? (
+                <img
+                  src={activeImage}
+                  alt={product.name}
+                  onError={() => setImageError(true)}
+                  className="max-h-full max-w-full object-contain filter drop-shadow-2xl transition-all duration-300"
+                />
+              ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center text-center p-4 bg-[#0B172E] border border-dashed border-slate-700 rounded-xl text-slate-400">
+                  <span className="text-[10px] font-black tracking-widest text-[#E5A919] uppercase">BIG DEALS</span>
+                  <span className="text-xs font-bold text-slate-300 mt-1">PRODUCT IMAGE</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5">IMAGE COMING FROM CATALOG</span>
+                </div>
+              )}
             </div>
 
             {/* Thumbnail Gallery (if multiple) */}
@@ -102,7 +112,10 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                 {imagesList.map((img, idx) => (
                   <button
                     key={idx}
-                    onClick={() => setSelectedImageIndex(idx)}
+                    onClick={() => {
+                      setSelectedImageIndex(idx);
+                      setImageError(false);
+                    }}
                     className={`w-14 h-14 rounded-xl bg-slate-950 p-1 border transition-all cursor-pointer overflow-hidden flex-shrink-0 ${
                       selectedImageIndex === idx
                         ? 'border-[#E5A919] ring-2 ring-[#E5A919]/30 scale-105'
@@ -156,7 +169,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                   </div>
                   <div className="text-right">
                     <span className="text-xs text-slate-400 line-through font-mono-price block">
-                      MRP {formatINR(product.referencePrice * quantity)}
+                      Reference {formatINR(product.referencePrice * quantity)}
                     </span>
                     <span className="text-sm font-black text-emerald-400">
                       Save ₹{(product.savingsAmount * quantity).toLocaleString('en-IN')}
@@ -172,28 +185,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                 </p>
               )}
 
-              {/* Key Features */}
-              {product.keyFeatures && product.keyFeatures.length > 0 && (
-                <div className="mt-4">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
-                    Key Highlights
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {product.keyFeatures.map((feat, idx) => (
-                      <div key={idx} className="flex items-center gap-1.5 text-xs text-slate-300">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#E5A919] flex-shrink-0" />
-                        <span>{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               {/* Specifications */}
               {product.specifications && Object.keys(product.specifications).length > 0 && (
                 <div className="mt-4 pt-3 border-t border-slate-800">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
-                    Specifications
+                    Catalog Specifications
                   </h4>
                   <div className="grid grid-cols-2 gap-2 text-xs">
                     {Object.entries(product.specifications).map(([key, val]) => (

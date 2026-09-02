@@ -23,34 +23,41 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onSelectCategory }) 
     { label: 'SHOP', id: 'catalog' },
     { label: 'DEALS', id: 'todays-deals' },
     { label: 'DIFFERENCE', id: 'price-comparison' },
+    { label: 'CONCIERGE', id: 'concierge' },
     { label: 'DEAL ROOM', id: 'deal-room', highlight: true },
-    { label: 'CALCULATOR', id: 'savings-calculator' },
+    { label: 'PRICE CHECK', id: 'price-check' },
     { label: 'ABOUT', id: 'about' },
-    { label: 'CONTACT', id: 'contact' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-[#050B17]/90 backdrop-blur-md border-b border-slate-800/80 transition-all">
+    <header className="fixed top-0 left-0 right-0 z-40 bg-[#050B17]/95 backdrop-blur-md border-b border-slate-800/80 transition-all">
+      {/* Top Brand Motif Bar */}
+      <div className="bg-[#0A1630] border-b border-slate-800 py-1 px-4 text-center">
+        <span className="text-[11px] font-black uppercase tracking-wider text-[#FFE27A]">
+          CHECK THE PRICE. THEN CHECK BIG DEALS. <span className="text-slate-400 font-normal">| Branded Products. Smarter Deals.</span>
+        </span>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-18">
           {/* Brand Logo */}
           <div className="cursor-pointer" onClick={() => handleNavClick('root')}>
             <Logo showTagline={true} />
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1.5">
+          <nav className="hidden xl:flex items-center gap-1">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => handleNavClick(link.id)}
-                className={`px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
+                className={`px-2.5 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer ${
                   link.highlight
-                    ? 'bg-[#172554] text-[#93C5FD] border border-[#3B82F6]/50 hover:bg-[#1E40AF] hover:text-white flex items-center gap-1.5'
+                    ? 'bg-[#172554] text-[#93C5FD] border border-[#3B82F6]/50 hover:bg-[#1E40AF] hover:text-white flex items-center gap-1'
                     : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                 }`}
               >
-                {link.highlight && <Sparkles className="w-3.5 h-3.5 text-[#E5A919]" />}
+                {link.highlight && <Sparkles className="w-3 h-3 text-[#E5A919]" />}
                 <span>{link.label}</span>
               </button>
             ))}

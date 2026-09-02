@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Product } from '../types';
 import { formatINR, getProductWhatsAppUrl } from '../data/products';
 import { useCart } from '../context/CartContext';
-import { MessageCircle, ShoppingBag, Eye, ShieldCheck } from 'lucide-react';
+import { MessageCircle, ShoppingBag, Eye, ShieldCheck, ImageOff } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -11,6 +11,7 @@ interface ProductCardProps {
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }) => {
   const { addToCart } = useCart();
+  const [imageError, setImageError] = useState(false);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -28,10 +29,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
         return 'OPEN-BOX';
       case 'new':
         return 'BRAND NEW';
-      case 'special inventory':
-        return 'CLEARANCE / SURPLUS';
+      case 'special-inventory':
+        return 'SPECIAL INVENTORY';
       default:
-        return 'VERIFIED DEAL';
+        return 'ASK CONDITION';
     }
   };
 
@@ -53,12 +54,21 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
 
       {/* Image container */}
       <div className="relative w-full h-52 sm:h-56 bg-slate-900/70 p-4 flex items-center justify-center overflow-hidden">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="max-h-full max-w-full object-contain filter drop-shadow-md transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
+        {!imageError && product.image ? (
+          <img
+            src={product.image}
+            alt={product.name}
+            onError={() => setImageError(true)}
+            className="max-h-full max-w-full object-contain filter drop-shadow-md transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center text-center p-4 bg-[#0B172E] border border-dashed border-slate-700 rounded-xl text-slate-400">
+            <span className="text-[10px] font-black tracking-widest text-[#E5A919] uppercase">BIG DEALS</span>
+            <span className="text-xs font-bold text-slate-300 mt-1">PRODUCT IMAGE</span>
+            <span className="text-[10px] text-slate-500 mt-0.5">IMAGE COMING FROM CATALOG</span>
+          </div>
+        )}
 
         {/* Quick View overlay on hover */}
         <div className="absolute inset-0 bg-[#050B17]/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 pointer-events-none">
@@ -88,11 +98,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
             {product.name}
           </h3>
 
-          {/* Stock state */}
-          <div className="mt-2 flex items-center gap-1.5">
-            <span className={`w-1.5 h-1.5 rounded-full ${product.availability === 'Limited Stock' ? 'bg-amber-400' : 'bg-emerald-400'} animate-pulse`} />
-            <span className="text-[11px] font-semibold text-slate-400">
-              {product.availability || 'In Stock'}
+          {/* Stock state & Verified Badge */}
+          <div className="mt-2 flex items-center justify-between gap-1.5">
+            <div className="flex items-center gap-1.5">
+              <span className={`w-1.5 h-1.5 rounded-full ${product.availability === 'Limited Stock' ? 'bg-amber-400' : 'bg-emerald-400'} animate-pulse`} />
+              <span className="text-[11px] font-semibold text-slate-400">
+                {product.availability || 'In Stock'}
+              </span>
+            </div>
+            <span className="text-[10px] font-semibold text-slate-400 flex items-center gap-1">
+              <ShieldCheck className="w-3 h-3 text-emerald-400" />
+              Big Deals Verified
             </span>
           </div>
         </div>
@@ -111,7 +127,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
 
             <div className="flex flex-col items-end">
               <span className="text-[10px] text-slate-400 font-semibold line-through font-mono-price">
-                MRP {formatINR(product.referencePrice)}
+                Ref. {formatINR(product.referencePrice)}
               </span>
               <span className="text-xs font-black text-emerald-400">
                 Save ₹{product.savingsAmount.toLocaleString('en-IN')}

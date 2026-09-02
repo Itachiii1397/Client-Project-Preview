@@ -6,13 +6,14 @@ export type Category =
   | 'Baby Care'
   | 'Daily Essentials'
   | 'Undergarments'
-  | 'House Holds'
+  | 'Household'
   | 'Special Deals';
 
-export type ProductCondition = 'new' | 'open-box' | 'special inventory' | 'unknown';
+export type ProductCondition = 'new' | 'open-box' | 'special-inventory' | 'unknown';
 
 export interface Product {
   id: string;
+  canonicalId: string;
   name: string;
   brand?: string;
   model?: string;
@@ -22,13 +23,16 @@ export interface Product {
   condition?: ProductCondition;
   image: string;
   images?: string[];
+  imageSource: string;
+  imageVerified: boolean;
+  dataVerified: boolean;
   description?: string;
   specifications?: Record<string, string>;
   availability?: 'In Stock' | 'Limited Stock' | 'Check Availability';
+  stock?: number;
   featured?: boolean;
   dealOfTheDay?: boolean;
   sourceUrl?: string;
-  verified?: boolean;
   savingsAmount: number;
   savingsPercentage: number;
   keyFeatures?: string[];
@@ -47,4 +51,5 @@ export interface FilterState {
   minDiscount: number;
   sortBy: 'featured' | 'savings-high' | 'price-low' | 'price-high' | 'discount-high';
 }
+
 

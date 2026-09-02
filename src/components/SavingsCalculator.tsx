@@ -133,7 +133,7 @@ export const SavingsCalculator: React.FC = () => {
               {/* Action buttons */}
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <a
-                  href={getProductWhatsAppUrl(product, quantity)}
+                  href={getProductWhatsAppUrl(product)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#1ebd5a] text-[#050B17] font-black text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all shadow-md"
