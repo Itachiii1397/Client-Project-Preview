@@ -1,15 +1,31 @@
 // Centralized Configuration & Data for INNITYX × BIG DEALS Client Proposal
 
-export const BIG_DEALS_WHATSAPP_NUMBER = '919111593355';
-export const INNITYX_CONTACT_NUMBER = '919111593355'; // Centralized contact number
+export const INNITYX_STUDIO_NAME = 'INNITYX';
+export const INNITYX_TAGLINE = 'Digital Product & Growth Studio';
+export const INNITYX_FOUNDER = 'Rodricks — Founder, INNITYX';
 export const INNITYX_CONTACT_EMAIL = 'contact@innityx.com';
 
-export const BIG_DEALS_WHATSAPP_URL = `https://wa.me/${BIG_DEALS_WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  'Hi Big Deals Team, I am reviewing the INNITYX Digital Commerce Proposal.'
+// Centralized Zoho Bookings schedule configuration
+export const INNITYX_SCHEDULE_URL = 'https://innityx.zohobookings.in/471960000000031045';
+
+// Centralized discuss mailto link for direct inquiry
+export const INNITYX_DISCUSS_MAILTO = `mailto:${INNITYX_CONTACT_EMAIL}?subject=${encodeURIComponent(
+  'INNITYX × Big Deals Digital Commerce Proposal'
+)}&body=${encodeURIComponent(
+  'Hi Rodricks,\n\nWe have reviewed the INNITYX × Big Deals Digital Commerce proposal and would like to discuss the next steps.\n\nBest regards,\nBig Deals Team'
 )}`;
 
-export const INNITYX_DISCUSS_URL = `https://wa.me/${INNITYX_CONTACT_NUMBER}?text=${encodeURIComponent(
-  'Hi INNITYX Team, let us discuss the Big Deals Digital Commerce Proposal and implementation timeline.'
+// Centralized meeting schedule mailto link (active when Zoho URL is pending)
+export const INNITYX_SCHEDULE_MAILTO = `mailto:${INNITYX_CONTACT_EMAIL}?subject=${encodeURIComponent(
+  'Schedule a Meeting — INNITYX × Big Deals Digital Commerce Proposal'
+)}&body=${encodeURIComponent(
+  'Hi Rodricks,\n\nWe would like to schedule a meeting to discuss the INNITYX × Big Deals Digital Commerce proposal.\n\nProposed date & time preferences:\n- Option 1:\n- Option 2:\n\nBest regards,\nBig Deals Team'
+)}`;
+
+// Big Deals Client Retail WhatsApp Configuration
+export const BIG_DEALS_WHATSAPP_NUMBER = '919111593355';
+export const BIG_DEALS_WHATSAPP_URL = `https://wa.me/${BIG_DEALS_WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  'Hi Big Deals Team, I would like to inquire about your product range.'
 )}`;
 
 export interface TierData {
@@ -26,71 +42,73 @@ export interface TierData {
 
 export const INVESTMENT_TIERS: TierData[] = [
   {
-    id: 'digital-presence',
+    id: 'option-01',
     optionLabel: 'OPTION 01',
     stageLabel: 'BE DISCOVERABLE',
-    name: 'DIGITAL PRESENCE',
+    name: 'BE DISCOVERABLE',
     price: '₹24,900',
-    period: 'ONE-TIME',
-    purpose: 'Establish Big Deals professionally online.',
+    period: 'one-time',
+    purpose: 'Professional digital presence without the operational complexity of ecommerce.',
     features: [
       'Premium responsive website',
-      'Core business pages & brand story',
-      'Product showcase & curated highlights',
-      'Direct WhatsApp inquiry CTA',
-      'Basic search engine optimization (SEO)',
-      'Full mobile & tablet optimization',
-      'Production deployment & hosting setup',
-      'Launch domain configuration',
+      'Core pages',
+      'Product showcase',
+      'WhatsApp CTA',
+      'Basic SEO',
+      'Mobile optimization',
+      'Deployment',
+      'Launch configuration',
     ],
   },
   {
-    id: 'ecommerce-starter',
+    id: 'option-02',
     optionLabel: 'OPTION 02',
     stageLabel: 'START SELLING',
-    name: 'ECOMMERCE STARTER',
+    name: 'START SELLING',
     price: '₹49,900',
-    period: 'ONE-TIME',
-    purpose: 'Launch Big Deals as an active online sales channel.',
+    period: 'one-time',
+    purpose: 'Transform the website into an active digital storefront with dynamic ordering.',
     features: [
-      'Everything included in Digital Presence',
-      'Dynamic product catalogue system',
-      'Initial 60+ catalogue inventory setup',
-      'Dedicated product detail pages & modals',
-      'Multi-category filtering & live search',
-      'Interactive shopping cart',
-      'Cart-to-WhatsApp direct checkout flow',
-      'Reference pricing & savings calculation',
-      'Analytics foundation (event tracking ready)',
-      'Mobile-first responsive commerce UX',
+      'Everything in Option 01',
+      'Dynamic catalogue',
+      'Dynamic product pages',
+      'Search',
+      'Filtering',
+      'Cart',
+      'WhatsApp ordering',
+      'Cart-to-WhatsApp',
+      'Savings calculations',
+      'Analytics foundation',
+      'Mobile commerce',
     ],
   },
   {
-    id: 'big-deals-commerce',
+    id: 'option-03',
     optionLabel: 'OPTION 03',
     stageLabel: 'OPERATE & GROW',
-    name: 'BIG DEALS COMMERCE',
+    name: 'OPERATE & GROW',
     price: '₹89,900',
-    period: 'ONE-TIME',
+    period: 'one-time',
     isRecommended: true,
-    purpose: 'Build the complete operational digital commerce platform.',
+    purpose: 'Complete digital business infrastructure with dedicated administrative control.',
     features: [
-      'Everything in Ecommerce Starter',
-      'Production structured database',
-      'Secure web admin panel',
-      'Product management (Add / Edit / Archive)',
-      'Category & taxonomy management',
-      'Live price & reference-price controls',
-      'Real-time availability & stock toggles',
-      'Condition flagging (New, Open-Box, Special)',
-      'Featured deals & Deal-of-the-Day controls',
-      'SEO-ready structured schema architecture',
-      'Granular commerce analytics events',
-      'Advanced commerce UX & micro-interactions',
-      'Performance & image optimization',
-      'Full cross-browser production QA',
-      'Production deployment & domain handover',
-      'Post-launch support & team training handover',
+      'Everything in Option 02',
+      'Production database',
+      'Secure admin panel',
+      'Product management',
+      'Category management',
+      'Price/reference-price management',
+      'Availability controls',
+      'Featured deals',
+      'Deal of Day controls',
+      'SEO-ready architecture',
+      'Analytics events',
+      'Advanced commerce UX',
+      'Performance optimization',
+      'Production QA',
+      'Deployment',
+      'Launch support',
+      'Handover',
     ],
   },
 ];
@@ -119,52 +137,61 @@ export const PAYMENT_MILESTONES = [
   },
 ];
 
-export const MARKETING_PLANS = [
+export interface MarketingPlan {
+  id: string;
+  name: string;
+  price: string;
+  period: string;
+  isRecommended?: boolean;
+  description: string;
+  features: string[];
+}
+
+export const MARKETING_PLANS: MarketingPlan[] = [
   {
     id: 'foundation',
     name: 'FOUNDATION',
     price: '₹7,500',
-    period: '/ month',
-    purpose: 'Establish baseline local search and discovery footprint.',
+    period: '/month',
+    description: 'Consistent digital presence and foundational activity.',
     features: [
       'Local digital visibility optimization',
       'Google Business Profile setup & support',
-      'Basic ongoing on-page SEO maintenance',
-      'Monthly deal banner & content support',
-      'Monthly discovery & traffic reporting',
+      'Foundational on-page SEO maintenance',
+      'Monthly deal showcase asset support',
+      'Monthly search & discovery performance summary',
     ],
   },
   {
     id: 'growth',
     name: 'GROWTH',
     price: '₹15,000',
-    period: '/ month',
+    period: '/month',
     isRecommended: true,
-    purpose: 'Drive consistent customer acquisition and repeat traffic.',
+    description: 'Structured content, campaigns and ongoing growth execution.',
     features: [
+      'Structured content & campaign execution',
       'Comprehensive local SEO & keyword indexing',
       'Google Business Profile active management',
-      'Instagram & Facebook organic campaign creatives',
-      'Broadcast WhatsApp deal campaign formats',
-      'Deal-focused product showcase creatives',
-      'Monthly structured campaign calendar',
-      'Traffic & engagement analytics review',
-      'Conversion journey optimization recommendations',
+      'Social media deal campaign creative formats',
+      'Broadcast WhatsApp deal communication formats',
+      'Monthly campaign calendar & execution plan',
+      'Traffic and customer interaction review',
     ],
   },
   {
     id: 'performance',
     name: 'PERFORMANCE',
     price: '₹25,000',
-    period: '/ month',
-    purpose: 'Maximize brand reach with multi-channel campaigns.',
+    period: '/month',
+    description: 'Higher-touch performance and campaign management.',
     features: [
-      'Everything in the Growth Plan',
-      'Full paid campaign creative management',
-      'Higher weekly content output & creative variations',
-      'Speed & landing page conversion performance tuning',
-      'Advanced executive performance reporting',
-      'Continuous conversion rate experimentation',
+      'Everything in Growth',
+      'Higher-touch performance campaign coordination',
+      'Multi-channel promotional creative variations',
+      'Customer journey touchpoint reviews',
+      'Executive performance & growth reports',
+      'Ongoing speed & user experience tuning',
     ],
   },
 ];
@@ -172,32 +199,34 @@ export const MARKETING_PLANS = [
 export interface CapabilityItem {
   feature: string;
   category: string;
-  digitalPresence: boolean | string;
-  ecommerceStarter: boolean | string;
-  bigDealsCommerce: boolean | string;
+  option01: boolean | string;
+  option02: boolean | string;
+  option03: boolean | string;
 }
 
 export const CAPABILITY_MATRIX: CapabilityItem[] = [
-  { feature: 'Premium responsive website', category: 'Core Web', digitalPresence: true, ecommerceStarter: true, bigDealsCommerce: true },
-  { feature: 'Product showcase', category: 'Core Web', digitalPresence: 'Curated', ecommerceStarter: 'Dynamic (60+)', bigDealsCommerce: 'Dynamic catalogue' },
-  { feature: 'Dynamic product detail pages', category: 'Catalogue', digitalPresence: false, ecommerceStarter: true, bigDealsCommerce: true },
-  { feature: 'Multi-category & live search', category: 'Catalogue', digitalPresence: false, ecommerceStarter: true, bigDealsCommerce: true },
-  { feature: 'Cart system', category: 'Commerce', digitalPresence: false, ecommerceStarter: true, bigDealsCommerce: true },
-  { feature: 'Cart-to-WhatsApp direct order', category: 'Commerce', digitalPresence: 'Direct Link', ecommerceStarter: true, bigDealsCommerce: true },
-  { feature: 'Reference pricing & savings calculation', category: 'Commerce', digitalPresence: false, ecommerceStarter: true, bigDealsCommerce: true },
-  { feature: 'Condition badges (New / Open-Box)', category: 'Commerce', digitalPresence: false, ecommerceStarter: true, bigDealsCommerce: true },
-  { feature: 'Production database integration', category: 'Operations', digitalPresence: false, ecommerceStarter: false, bigDealsCommerce: true },
-  { feature: 'Secure administrative panel', category: 'Operations', digitalPresence: false, ecommerceStarter: false, bigDealsCommerce: true },
-  { feature: 'Live product management (CRUD)', category: 'Operations', digitalPresence: false, ecommerceStarter: false, bigDealsCommerce: true },
-  { feature: 'Category & hierarchy management', category: 'Operations', digitalPresence: false, ecommerceStarter: false, bigDealsCommerce: true },
-  { feature: 'Live price & reference-price controls', category: 'Operations', digitalPresence: false, ecommerceStarter: false, bigDealsCommerce: true },
-  { feature: 'Real-time availability toggles', category: 'Operations', digitalPresence: false, ecommerceStarter: false, bigDealsCommerce: true },
-  { feature: 'Deal-of-the-Day & featured controls', category: 'Operations', digitalPresence: false, ecommerceStarter: false, bigDealsCommerce: true },
-  { feature: 'Structured SEO schema architecture', category: 'Growth', digitalPresence: 'Basic', ecommerceStarter: 'Standard', bigDealsCommerce: 'Advanced Structured' },
-  { feature: 'Analytics foundation & event tracking', category: 'Growth', digitalPresence: false, ecommerceStarter: 'Standard', bigDealsCommerce: 'Full Event Tracking' },
-  { feature: 'Advanced commerce UX & micro-interactions', category: 'Experience', digitalPresence: false, ecommerceStarter: 'Standard', bigDealsCommerce: 'High-Touch' },
-  { feature: 'Performance & image optimization', category: 'Experience', digitalPresence: 'Standard', ecommerceStarter: 'Optimized', bigDealsCommerce: 'Enterprise Optimized' },
-  { feature: 'Production launch & handover training', category: 'Delivery', digitalPresence: 'Basic', ecommerceStarter: 'Standard', bigDealsCommerce: 'Comprehensive' },
+  { feature: 'Premium responsive website', category: 'Core Web', option01: true, option02: true, option03: true },
+  { feature: 'Core pages (Home, About, Contact)', category: 'Core Web', option01: true, option02: true, option03: true },
+  { feature: 'Product showcase', category: 'Catalogue', option01: 'Curated (Static)', option02: 'Dynamic (Searchable)', option03: 'Dynamic (Searchable)' },
+  { feature: 'Dynamic product pages', category: 'Catalogue', option01: false, option02: true, option03: true },
+  { feature: 'Search & filtering', category: 'Catalogue', option01: false, option02: true, option03: true },
+  { feature: 'Interactive cart', category: 'Commerce', option01: false, option02: true, option03: true },
+  { feature: 'WhatsApp ordering', category: 'Commerce', option01: 'Direct Inquiry CTA', option02: 'Itemized Order Flow', option03: 'Itemized Order Flow' },
+  { feature: 'Cart-to-WhatsApp order dispatch', category: 'Commerce', option01: false, option02: true, option03: true },
+  { feature: 'Savings calculations & reference pricing', category: 'Commerce', option01: false, option02: true, option03: true },
+  { feature: 'Mobile commerce optimization', category: 'Commerce', option01: 'Mobile Presence', option02: true, option03: true },
+  { feature: 'Analytics foundation', category: 'Analytics', option01: 'Basic Traffic', option02: 'Event Foundation', option03: 'Full Event Tracking' },
+  { feature: 'Production database', category: 'Operations', option01: false, option02: false, option03: true },
+  { feature: 'Secure admin panel', category: 'Operations', option01: false, option02: false, option03: true },
+  { feature: 'Product management (Add/Edit/Archive)', category: 'Operations', option01: false, option02: false, option03: true },
+  { feature: 'Category management', category: 'Operations', option01: false, option02: false, option03: true },
+  { feature: 'Price/reference-price management', category: 'Operations', option01: false, option02: false, option03: true },
+  { feature: 'Availability & stock controls', category: 'Operations', option01: false, option02: false, option03: true },
+  { feature: 'Featured deals & Deal of Day controls', category: 'Operations', option01: false, option02: false, option03: true },
+  { feature: 'SEO-ready architecture', category: 'Growth', option01: 'Basic SEO', option02: 'Standard SEO', option03: 'Structured Schema' },
+  { feature: 'Advanced commerce UX & micro-interactions', category: 'Experience', option01: false, option02: 'Standard', option03: 'High-Touch' },
+  { feature: 'Performance optimization', category: 'Engineering', option01: 'Standard', option02: 'Optimized', option03: 'Production Grade' },
+  { feature: 'Production QA & launch support', category: 'Delivery', option01: 'Standard', option02: 'Standard', option03: 'Dedicated Support & Handover' },
 ];
 
 export const ROADMAP_STAGES = [
@@ -206,34 +235,34 @@ export const ROADMAP_STAGES = [
     name: 'DISCOVERABILITY',
     focus: 'Search & Visibility Channels',
     description: 'Ensure Big Deals is indexed on Google, visible across Instagram/Facebook/WhatsApp, and provides an authoritative digital destination.',
-    items: ['Google Business indexing', 'Social traffic capture', 'Authoritative fast website', 'WhatsApp direct channel'],
+    items: ['Google Search presence', 'Social media discovery', 'Fast responsive website', 'Direct contact channel'],
   },
   {
     number: '02',
     name: 'CONVERSION',
     focus: 'Storefront & WhatsApp Commerce',
-    description: 'Provide an intuitive buying experience with clear prices, reference savings, search, filter, and cart-to-WhatsApp checkout.',
+    description: 'Provide an intuitive browsing experience with clear prices, reference savings, search, filter, and cart-to-WhatsApp checkout.',
     items: ['Dynamic product catalogue', 'Reference price comparison', 'Savings calculation', 'Cart & WhatsApp ordering'],
   },
   {
     number: '03',
     name: 'OPERATIONS',
     focus: 'Admin & Inventory Control',
-    description: 'Empower Big Deals staff to update prices, mark items sold out, add fresh inventory, and feature high-margin deals in real time.',
-    items: ['Production database', 'Web admin portal', 'Price & condition editor', 'Daily featured spotlight controls'],
+    description: 'Empower Big Deals staff to update prices, toggle availability, manage inventory, and highlight high-value deals in real time.',
+    items: ['Production database', 'Web admin portal', 'Price & condition editor', 'Daily deal spotlight controls'],
   },
   {
     number: '04',
     name: 'GROWTH',
-    focus: 'Traffic & Content Engine',
-    description: 'Deploy systematic SEO, targeted seasonal deal campaigns, broadcast WhatsApp marketing, and conversion funnel analytics.',
-    items: ['Local SEO indexing', 'WhatsApp broadcast campaigns', 'Funnel event analytics', 'Deal creative production'],
+    focus: 'Structured Content & Campaigns',
+    description: 'Deploy systematic local SEO, structured deal campaigns, broadcast WhatsApp marketing, and user journey analytics.',
+    items: ['Local SEO indexing', 'Broadcast campaign formats', 'Customer journey insights', 'Deal creative production'],
   },
   {
     number: '05',
     name: 'SCALE',
-    focus: 'Enterprise & Automation',
-    description: 'Expand into automated payment gateways, CRM customer retention, price intelligence tracking, and AI-assisted deal concierges.',
-    items: ['Integrated payment gateways', 'Automated CRM & loyalty', 'Competitor price tracking', 'AI shopping assistance'],
+    focus: 'Expanded Operations & Systems',
+    description: 'Expand into automated payment gateways, customer retention systems, inventory integrations, and advanced retail workflows.',
+    items: ['Integrated payment gateways', 'Customer loyalty systems', 'Inventory synchronization', 'Advanced retail workflows'],
   },
 ];

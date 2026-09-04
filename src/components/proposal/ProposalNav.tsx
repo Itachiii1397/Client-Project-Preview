@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, ShoppingBag, FileText, Menu, X, Sparkles } from 'lucide-react';
+import { ArrowUpRight, ShoppingBag, FileText, Menu, X } from 'lucide-react';
+import { InnityxLogo } from './InnityxLogo';
 
 interface ProposalNavProps {
   onSwitchToPreview: () => void;
@@ -16,20 +17,17 @@ export const ProposalNav: React.FC<ProposalNavProps> = ({ onSwitchToPreview }) =
 
       const sectionIds = [
         'cover',
-        'opportunity',
-        'market-reality',
-        'capability-matrix',
-        'customer-journey',
-        'working-proof',
-        'commerce-engine',
-        'admin-preview',
-        'investment',
-        'derisk',
-        'benchmark',
-        'why-innityx',
+        'business-understanding',
+        'website-vs-commerce',
+        'ecommerce-demo',
+        'basic-website-demo',
+        'commerce-operations-demo',
+        'pricing',
         'marketing',
+        'customer-journey',
         'roadmap',
-        'recommended',
+        'investment-summary',
+        'contact',
       ];
 
       const scrollPosition = window.scrollY + 200;
@@ -59,6 +57,18 @@ export const ProposalNav: React.FC<ProposalNavProps> = ({ onSwitchToPreview }) =
     }
   };
 
+  const navLinks = [
+    { id: 'business-understanding', label: 'Positioning' },
+    { id: 'website-vs-commerce', label: 'Comparison' },
+    { id: 'ecommerce-demo', label: 'Ecommerce' },
+    { id: 'basic-website-demo', label: 'Basic Site' },
+    { id: 'commerce-operations-demo', label: 'Operations' },
+    { id: 'pricing', label: 'Pricing' },
+    { id: 'marketing', label: 'Marketing' },
+    { id: 'investment-summary', label: 'Summary' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
   return (
     <>
       <header
@@ -69,28 +79,13 @@ export const ProposalNav: React.FC<ProposalNavProps> = ({ onSwitchToPreview }) =
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Left: INNITYX Brand Badge */}
+          {/* Left: Approved INNITYX Brand Badge */}
           <div className="flex items-center gap-3">
             <button
               onClick={() => scrollToSection('cover')}
-              className="flex items-center gap-2.5 text-left group focus:outline-none"
+              className="flex items-center text-left group focus:outline-none"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center font-mono font-bold text-white text-xs tracking-wider shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
-                IX
-              </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <span className="font-extrabold text-sm tracking-tight text-white group-hover:text-blue-400 transition-colors font-heading">
-                    INNITYX
-                  </span>
-                  <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-white/10 text-blue-300 font-semibold border border-white/10">
-                    Solutions
-                  </span>
-                </div>
-                <span className="text-[10px] text-slate-400 font-mono tracking-wide">
-                  Strategic Consultancy
-                </span>
-              </div>
+              <InnityxLogo size="sm" showSubtitle={false} />
             </button>
 
             {/* Separator */}
@@ -107,15 +102,8 @@ export const ProposalNav: React.FC<ProposalNavProps> = ({ onSwitchToPreview }) =
           </div>
 
           {/* Center: In-page Jump Links (Desktop) */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/5 px-2 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">
-            {[
-              { id: 'opportunity', label: 'Opportunity' },
-              { id: 'capability-matrix', label: 'Matrix' },
-              { id: 'working-proof', label: 'Proof' },
-              { id: 'admin-preview', label: 'Admin' },
-              { id: 'investment', label: 'Investment' },
-              { id: 'roadmap', label: 'Roadmap' },
-            ].map((link) => (
+          <nav className="hidden xl:flex items-center gap-1 bg-white/5 px-2.5 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">
+            {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
@@ -132,20 +120,20 @@ export const ProposalNav: React.FC<ProposalNavProps> = ({ onSwitchToPreview }) =
 
           {/* Right: Dual Mode Switcher Buttons */}
           <div className="flex items-center gap-2">
-            {/* Active Proposal Tab */}
+            {/* Active Proposal Tab Indicator */}
             <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600/20 border border-blue-500/40 text-blue-300 text-xs font-semibold">
               <FileText className="w-3.5 h-3.5 text-blue-400" />
               <span>Proposal</span>
             </div>
 
-            {/* Switch to Live Preview Button */}
+            {/* Switch to Live Store Preview Button */}
             <button
               onClick={onSwitchToPreview}
               className="group relative flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-xs font-bold shadow-lg shadow-amber-500/25 hover:from-amber-400 hover:to-amber-500 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
               title="Open the interactive Big Deals store preview"
             >
               <ShoppingBag className="w-3.5 h-3.5 text-slate-950" />
-              <span>Live Preview</span>
+              <span>Store Preview</span>
               <span className="hidden sm:inline-block px-1.5 py-0.2 text-[9px] font-mono uppercase bg-black/20 rounded font-bold">
                 64 Items
               </span>
@@ -155,7 +143,7 @@ export const ProposalNav: React.FC<ProposalNavProps> = ({ onSwitchToPreview }) =
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white"
+              className="xl:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white"
               aria-label="Toggle Navigation"
             >
               {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -166,27 +154,24 @@ export const ProposalNav: React.FC<ProposalNavProps> = ({ onSwitchToPreview }) =
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-x-0 top-[60px] z-30 bg-[#030712]/98 backdrop-blur-xl border-b border-white/10 py-5 px-6 shadow-2xl lg:hidden animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="fixed inset-x-0 top-[60px] z-30 bg-[#030712]/98 backdrop-blur-xl border-b border-white/10 py-5 px-6 shadow-2xl xl:hidden animate-in fade-in slide-in-from-top-4 duration-200">
           <div className="flex flex-col gap-3">
             <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 pb-1 border-b border-white/5">
               Proposal Sections
             </div>
             {[
-              { id: 'cover', label: '01 · Executive Cover' },
-              { id: 'opportunity', label: '02 · The Opportunity' },
-              { id: 'market-reality', label: '03 · Market Reality' },
-              { id: 'capability-matrix', label: '04 · Capability Matrix' },
-              { id: 'customer-journey', label: '05 · Customer Journey' },
-              { id: 'working-proof', label: '06 · Working Proof (Live App)' },
-              { id: 'commerce-engine', label: '07 · Commerce Engine' },
-              { id: 'admin-preview', label: '08 · Admin Interface Concept' },
-              { id: 'investment', label: '09 · Investment Tiers' },
-              { id: 'derisk', label: '10 · De-Risking Strategy' },
-              { id: 'benchmark', label: '11 · Market Context' },
-              { id: 'why-innityx', label: '12 · Why INNITYX' },
-              { id: 'marketing', label: '13 · Marketing & Traffic' },
-              { id: 'roadmap', label: '14 · 5-Stage Roadmap' },
-              { id: 'recommended', label: '15 · Recommended Scope & Milestones' },
+              { id: 'cover', label: '01 · Overview' },
+              { id: 'business-understanding', label: '02 · Business Understanding' },
+              { id: 'website-vs-commerce', label: '03 · Website vs Commerce' },
+              { id: 'ecommerce-demo', label: '04 · Ecommerce Demo' },
+              { id: 'basic-website-demo', label: '05 · Basic Website Demo' },
+              { id: 'commerce-operations-demo', label: '06 · Operations Demo' },
+              { id: 'pricing', label: '07 · Pricing' },
+              { id: 'marketing', label: '08 · Marketing' },
+              { id: 'customer-journey', label: '09 · Customer Journey' },
+              { id: 'roadmap', label: '10 · Roadmap' },
+              { id: 'investment-summary', label: '11 · Investment Summary' },
+              { id: 'contact', label: '12 · Contact INNITYX' },
             ].map((item) => (
               <button
                 key={item.id}

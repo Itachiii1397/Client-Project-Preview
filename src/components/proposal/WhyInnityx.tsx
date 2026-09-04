@@ -93,7 +93,7 @@ export const WhyInnityx: React.FC = () => {
           </p>
         </blockquote>
         <div className="mt-6 pt-4 border-t border-white/10 text-xs font-mono uppercase tracking-widest text-slate-400">
-          INNITYX SOLUTIONS · PARTNERSHIP MANIFESTO
+          INNITYX · DIGITAL PRODUCT & GROWTH STUDIO
         </div>
       </div>
     </section>

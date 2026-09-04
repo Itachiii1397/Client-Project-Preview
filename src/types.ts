@@ -24,8 +24,8 @@ export interface Product {
   image: string;
   images?: string[];
   imageSource: string;
-  imageVerified: boolean;
-  dataVerified: boolean;
+  imageInspected?: boolean;
+  dataInspected?: boolean;
   description?: string;
   specifications?: Record<string, string>;
   availability?: 'In Stock' | 'Limited Stock' | 'Check Availability';

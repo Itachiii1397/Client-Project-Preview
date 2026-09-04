@@ -44,7 +44,7 @@ export const HeroDealSpotlight: React.FC<HeroDealSpotlightProps> = ({ onQuickVie
 
           <div className="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-400 bg-[#0B172E] px-3.5 py-2 rounded-xl border border-slate-800">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Single Highlight Deal • Verified Live Stock</span>
+            <span>Single Highlight Deal • In Stock</span>
           </div>
         </div>
 
@@ -139,7 +139,7 @@ export const HeroDealSpotlight: React.FC<HeroDealSpotlightProps> = ({ onQuickVie
                 <div className="mt-4 flex items-center justify-between text-xs text-slate-400">
                   <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
                     <ShieldCheck className="w-4 h-4" />
-                    100% Genuine Big Deals Verified
+                    Genuine Product • Direct Store Stock
                   </span>
                   <span className="font-bold text-slate-300">
                     Motif: <em className="text-[#FFE27A] not-italic">Check the price. Then check Big Deals.</em>

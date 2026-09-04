@@ -98,7 +98,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
             {product.name}
           </h3>
 
-          {/* Stock state & Verified Badge */}
+          {/* Stock state & Store Badge */}
           <div className="mt-2 flex items-center justify-between gap-1.5">
             <div className="flex items-center gap-1.5">
               <span className={`w-1.5 h-1.5 rounded-full ${product.availability === 'Limited Stock' ? 'bg-amber-400' : 'bg-emerald-400'} animate-pulse`} />
@@ -107,8 +107,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
               </span>
             </div>
             <span className="text-[10px] font-semibold text-slate-400 flex items-center gap-1">
-              <ShieldCheck className="w-3 h-3 text-emerald-400" />
-              Big Deals Verified
+              <ShieldCheck className="w-3 h-3 text-blue-400" />
+              Store Stock
             </span>
           </div>
         </div>

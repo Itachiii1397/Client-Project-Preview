@@ -2,28 +2,26 @@ import React from 'react';
 import { ProposalNav } from './ProposalNav';
 import { ProposalHero } from './ProposalHero';
 import { OpportunitySection } from './OpportunitySection';
-import { MarketReality } from './MarketReality';
 import { ComparisonSection } from './ComparisonSection';
-import { CustomerJourney } from './CustomerJourney';
+import { BasicWebsiteDemo } from './BasicWebsiteDemo';
 import { PreviewSection } from './PreviewSection';
-import { CommerceEngine } from './CommerceEngine';
 import { AdminPreview } from './AdminPreview';
 import { InvestmentSection } from './InvestmentSection';
-import { DeRiskSection } from './DeRiskSection';
-import { MarketBenchmark } from './MarketBenchmark';
-import { WhyInnityx } from './WhyInnityx';
 import { MarketingSection } from './MarketingSection';
+import { CustomerJourney } from './CustomerJourney';
 import { RoadmapSection } from './RoadmapSection';
-import { RecommendedInvestment } from './RecommendedInvestment';
+import { InvestmentSummary } from './InvestmentSummary';
 import { ProposalFinalCTA } from './ProposalFinalCTA';
+import { InnityxLogo } from './InnityxLogo';
+import { INNITYX_CONTACT_EMAIL } from '../../data/proposalData';
 
 interface ProposalAppProps {
   onSwitchToPreview: () => void;
 }
 
 export const ProposalApp: React.FC<ProposalAppProps> = ({ onSwitchToPreview }) => {
-  const handleScrollToOpportunity = () => {
-    const el = document.getElementById('opportunity');
+  const handleScrollToSection = (id: string) => {
+    const el = document.getElementById(id);
     if (el) {
       const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
@@ -42,67 +40,66 @@ export const ProposalApp: React.FC<ProposalAppProps> = ({ onSwitchToPreview }) =
       <ProposalNav onSwitchToPreview={onSwitchToPreview} />
 
       <main className="flex-grow">
-        {/* Section 01: Executive Cover */}
+        {/* Section 01: Hero */}
         <ProposalHero
-          onExploreClick={handleScrollToOpportunity}
+          onExploreClick={() => handleScrollToSection('business-understanding')}
           onPreviewClick={onSwitchToPreview}
         />
 
-        {/* Section 02: The Strategic Opportunity */}
+        {/* Section 02: Business Understanding & Positioning */}
         <OpportunitySection />
 
-        {/* Section 03: Market Reality (Website vs Commerce) */}
-        <MarketReality />
-
-        {/* Section 04: Interactive Capability Matrix */}
+        {/* Section 03: Website vs Commerce (Interactive 3-Tab Comparison) */}
         <ComparisonSection />
 
-        {/* Section 05: Customer Journey & Conversion Pipeline */}
-        <CustomerJourney />
-
-        {/* Section 06: Working Proof (Live Interactive Store Card) */}
+        {/* Section 04 & 06: Ecommerce Demo & Interactive Product Experience */}
         <PreviewSection onExplorePreview={onSwitchToPreview} />
 
-        {/* Section 07: System Commerce Engine Layers */}
-        <CommerceEngine />
+        {/* Section 05: Basic Website Demo (Simulated Option 01 ₹24,900) */}
+        <BasicWebsiteDemo />
 
-        {/* Section 08: Admin Interface Operational Concept */}
+        {/* Section 07: Commerce + Operations Demo (Illustrative Admin View Option 03 ₹89,900) */}
         <AdminPreview />
 
-        {/* Section 09: Three Ways to Start (Investment Tiers) */}
+        {/* Section 08: Pricing (Exact 3 Options with Guidance) */}
         <InvestmentSection />
 
-        {/* Section 10: De-Risking Strategy & Phasing */}
-        <DeRiskSection />
-
-        {/* Section 11: Market Context & Indicative Benchmarks */}
-        <MarketBenchmark />
-
-        {/* Section 12: Why Build with INNITYX */}
-        <WhyInnityx />
-
-        {/* Section 13: Optional Marketing & Demand Generation */}
+        {/* Section 09: Digital Growth & Marketing (Exact 3 Retainers) */}
         <MarketingSection />
 
-        {/* Section 14: 5-Stage Evolutionary Roadmap */}
+        {/* Section 10: Simple Customer Journey */}
+        <CustomerJourney />
+
+        {/* Section 11: 5-Stage Evolutionary Roadmap */}
         <RoadmapSection />
 
-        {/* Section 15: Executive Recommendation & Payment Milestones */}
-        <RecommendedInvestment />
+        {/* Section 12: Investment Summary (Commerce vs Marketing Separation) */}
+        <InvestmentSummary />
 
-        {/* Section 16: Final Call to Action */}
+        {/* Section 13: Final Call to Action */}
         <ProposalFinalCTA onExplorePreview={onSwitchToPreview} />
       </main>
 
-      {/* Proposal Footer */}
-      <footer className="bg-[#02050D] border-t border-white/10 py-8 px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500 font-mono">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-slate-300 font-heading">INNITYX SOLUTIONS PVT. LTD.</span>
-            <span>· All Rights Reserved · 2026</span>
+      {/* Section 17: Proposal Footer */}
+      <footer className="bg-[#02050D] border-t border-white/10 py-10 px-4 sm:px-6 lg:px-8 text-slate-400 font-mono text-xs">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+            <InnityxLogo size="sm" showSubtitle={false} />
+            <div className="flex flex-col">
+              <span className="font-bold text-white font-heading">INNITYX</span>
+              <span className="text-[11px] text-slate-400">Digital Product & Growth Studio</span>
+              <a
+                href={`mailto:${INNITYX_CONTACT_EMAIL}`}
+                className="text-blue-400 hover:text-blue-300 transition-colors mt-0.5"
+              >
+                {INNITYX_CONTACT_EMAIL}
+              </a>
+            </div>
           </div>
-          <div>
-            Private Commercial Strategy Document for Big Deals Management
+
+          <div className="text-center sm:text-right space-y-1 text-slate-500 text-[11px]">
+            <div>Prepared for Big Deals Leadership</div>
+            <div>Commercial Digital Proposal · 2026</div>
           </div>
         </div>
       </footer>

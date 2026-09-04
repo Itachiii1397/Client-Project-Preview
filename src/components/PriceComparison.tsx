@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext';
 import { TrendingDown, Sparkles, MessageCircle, ShoppingBag, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export const PriceComparison: React.FC = () => {
-  // Select top high-saving verified real catalog products
+  // Select top high-saving real catalog products
   const comparisonItems = [
     PRODUCTS.find((p) => p.canonicalId === '1463') || PRODUCTS[0], // Pigeon Healthifry (Save ₹516)
     PRODUCTS.find((p) => p.canonicalId === '2489') || PRODUCTS[1], // Havells Instant Geyser (Save ₹5,631)
@@ -117,7 +117,7 @@ export const PriceComparison: React.FC = () => {
                 {/* Quality Check badge */}
                 <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-emerald-400">
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>Quality checked & verified ready for delivery</span>
+                  <span>Quality checked & ready for delivery</span>
                 </div>
               </div>
             </div>

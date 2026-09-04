@@ -1,6 +1,5 @@
 import React from 'react';
 import { ROADMAP_STAGES } from '../../data/proposalData';
-import { ArrowRight, CheckCircle2, Flag } from 'lucide-react';
 
 export const RoadmapSection: React.FC = () => {
   return (
@@ -8,18 +7,23 @@ export const RoadmapSection: React.FC = () => {
       {/* Section Eyebrow */}
       <div className="flex items-center gap-2 mb-3">
         <span className="text-xs font-mono font-semibold uppercase tracking-widest text-blue-400">
-          SECTION 14 · LONG-TERM ROADMAP
+          SECTION 11 · EVOLUTIONARY ROADMAP
         </span>
       </div>
 
       {/* Main Headline */}
       <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-heading mb-4 max-w-3xl">
-        FROM WEBSITE TO DIGITAL COMMERCE.
+        01 Discoverability to 05 Scale.
       </h2>
 
-      <p className="text-base sm:text-lg text-slate-300 max-w-3xl mb-14 leading-relaxed">
-        A clear 5-stage evolutionary roadmap outlining the transition from baseline discovery to full-scale digital commerce operations.
+      <p className="text-base sm:text-lg text-slate-300 max-w-3xl mb-4 leading-relaxed">
+        These are developmental stages, not mandatory packages. Each stage builds on the previous one as Big Deals grows in inventory turnover and operational readiness.
       </p>
+
+      {/* Clarifying Stage Context Note */}
+      <div className="text-xs font-mono text-slate-400 mb-12">
+        * Stage progression is flexible: Big Deals advances when business metrics and staff capacity dictate.
+      </div>
 
       {/* 5 Sequential Stages */}
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-14">
@@ -35,7 +39,7 @@ export const RoadmapSection: React.FC = () => {
                 </span>
                 {idx === 0 && (
                   <span className="text-[9px] font-mono uppercase px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
-                    DAY 01 FOCUS
+                    START HERE
                   </span>
                 )}
               </div>
@@ -65,11 +69,11 @@ export const RoadmapSection: React.FC = () => {
       </div>
 
       {/* Closing Quote Banner */}
-      <div className="p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-[#0B1528] to-slate-900 border border-blue-500/30 text-center max-w-4xl mx-auto shadow-xl">
+      <div className="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-slate-900 via-[#0B1528] to-slate-900 border border-blue-500/30 text-center max-w-4xl mx-auto shadow-xl space-y-2">
         <p className="text-xl sm:text-2xl font-bold text-white font-heading leading-relaxed">
           "You don't need Stage 05 today.
         </p>
-        <p className="text-xl sm:text-2xl font-extrabold text-amber-300 font-heading mt-1">
+        <p className="text-xl sm:text-2xl font-extrabold text-amber-300 font-heading">
           You need Stage 01 built correctly enough that Stage 05 remains possible."
         </p>
       </div>

@@ -33,9 +33,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
     switch (condition) {
       case 'open-box':
         return {
-          label: 'OPEN-BOX VERIFIED',
+          label: 'OPEN-BOX ITEM',
           bg: 'bg-[#050B17] text-amber-300 border-amber-500/40',
-          desc: 'Original retail packaging opened for inspection / surplus batch. Guaranteed 100% genuine and fully functional.',
+          desc: 'Original retail packaging opened for inspection / surplus batch. Inspected and fully functional.',
         };
       case 'new':
         return {
@@ -47,11 +47,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
         return {
           label: 'SPECIAL INVENTORY',
           bg: 'bg-[#050B17] text-sky-300 border-sky-500/40',
-          desc: 'Direct wholesale liquidation & verified inventory batch.',
+          desc: 'Direct wholesale liquidation & surplus inventory batch.',
         };
       default:
         return {
-          label: 'VERIFIED INVENTORY',
+          label: 'STORE INVENTORY',
           bg: 'bg-[#050B17] text-slate-200 border-slate-700',
           desc: 'Ask about physical packaging and batch condition on WhatsApp.',
         };

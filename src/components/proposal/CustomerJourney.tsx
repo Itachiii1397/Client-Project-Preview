@@ -1,88 +1,17 @@
 import React from 'react';
-import { Search, Compass, Eye, Scale, Sparkles, ShoppingBag, MessageSquare, CheckCircle, Repeat, RotateCcw, ArrowRight, ArrowDown } from 'lucide-react';
+import { ArrowDown, ArrowRight, Compass, Search, ShoppingBag, Eye, Scale, MessageSquare, CheckCircle, Repeat } from 'lucide-react';
 
 export const CustomerJourney: React.FC = () => {
-  const steps = [
-    {
-      num: '01',
-      title: 'DISCOVER',
-      subtitle: 'Google / IG / FB / WhatsApp',
-      desc: 'Customer encounters a deal spotlight, local search result, or shared link.',
-      icon: Search,
-      accent: 'border-blue-500/40 text-blue-400',
-    },
-    {
-      num: '02',
-      title: 'LAND',
-      subtitle: 'Instant Mobile Page Load',
-      desc: 'Direct destination into the specific product or curated category without lag.',
-      icon: Compass,
-      accent: 'border-blue-500/40 text-blue-400',
-    },
-    {
-      num: '03',
-      title: 'BROWSE',
-      subtitle: 'Live Dynamic Catalogue',
-      desc: 'Explores 60+ catalogue items with real photos, condition tags, and specifications.',
-      icon: Eye,
-      accent: 'border-indigo-500/40 text-indigo-400',
-    },
-    {
-      num: '04',
-      title: 'COMPARE',
-      subtitle: 'Market Reference Pricing',
-      desc: 'Customer transparently validates Big Deals price vs genuine MRP / market price.',
-      icon: Scale,
-      accent: 'border-amber-500/40 text-amber-400',
-    },
-    {
-      num: '05',
-      title: 'SEE SAVINGS',
-      subtitle: 'Real-Time Discount Tally',
-      desc: 'Exact rupee and percentage savings are computed and highlighted immediately.',
-      icon: Sparkles,
-      accent: 'border-amber-500/40 text-amber-400',
-    },
-    {
-      num: '06',
-      title: 'ADD TO CART',
-      subtitle: 'Multi-Product Assembly',
-      desc: 'Customer combines multiple household, sports, or appliance bargains in one cart.',
-      icon: ShoppingBag,
-      accent: 'border-emerald-500/40 text-emerald-400',
-    },
-    {
-      num: '07',
-      title: 'ORDER ON WHATSAPP',
-      subtitle: 'Structured Order Payload',
-      desc: 'One tap dispatches an itemized quotation with product IDs directly to Big Deals.',
-      icon: MessageSquare,
-      accent: 'border-emerald-500/40 text-emerald-400',
-    },
-    {
-      num: '08',
-      title: 'PURCHASE',
-      subtitle: 'Direct Fulfillment',
-      desc: 'Big Deals team confirms availability, payment mode (UPI/Store), and dispatch timeline.',
-      icon: CheckCircle,
-      accent: 'border-teal-500/40 text-teal-400',
-    },
-    {
-      num: '09',
-      title: 'RETURN',
-      subtitle: 'Daily Deal Radar',
-      desc: 'Customer revisits the digital storefront to check new inventory and weekly arrivals.',
-      icon: RotateCcw,
-      accent: 'border-blue-500/40 text-blue-400',
-    },
-    {
-      num: '10',
-      title: 'REPEAT',
-      subtitle: 'Customer Loyalty Loop',
-      desc: 'Word-of-mouth recommendations and repeat purchases establish long-term value.',
-      icon: Repeat,
-      accent: 'border-indigo-500/40 text-indigo-400',
-    },
+  const channelSources = ['Google Search', 'Instagram', 'Facebook', 'WhatsApp Direct / Shares'];
+
+  const journeySteps = [
+    { title: 'Discover', desc: 'Customer encounters deals via local search or social showcases', icon: Search },
+    { title: 'Browse', desc: 'Explores the dynamic catalogue across departments', icon: Eye },
+    { title: 'Compare', desc: 'Inspects transparent price vs genuine reference MRP', icon: Scale },
+    { title: 'Cart', desc: 'Assembles multiple items into a persistent order', icon: ShoppingBag },
+    { title: 'WhatsApp Order', desc: 'Transfers itemized list directly to store chat with one tap', icon: MessageSquare },
+    { title: 'Purchase', desc: 'Fulfills order in-store or through local dispatch', icon: CheckCircle },
+    { title: 'Return / Repeat', desc: 'Checks back regularly for daily arrivals and seasonal batches', icon: Repeat },
   ];
 
   return (
@@ -90,66 +19,93 @@ export const CustomerJourney: React.FC = () => {
       {/* Section Eyebrow */}
       <div className="flex items-center gap-2 mb-3">
         <span className="text-xs font-mono font-semibold uppercase tracking-widest text-blue-400">
-          SECTION 05 · CONVERSION PIPELINE
+          SECTION 10 · CUSTOMER JOURNEY
         </span>
       </div>
 
       {/* Main Headline */}
       <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-heading mb-4 max-w-3xl">
-        WHAT SHOULD HAPPEN WHEN SOMEONE SEES A BIG DEAL?
+        Simple Customer Conversion Flow.
       </h2>
 
-      {/* Strategic Explanation */}
       <p className="text-base sm:text-lg text-slate-300 max-w-3xl mb-12 leading-relaxed">
-        Value-focused shoppers prioritize speed and clarity. The proposed digital platform creates the technical infrastructure to guide a visitor effortlessly from curiosity to a confirmed WhatsApp purchase order.
+        How an everyday shopper moves from discovering Big Deals online to sending an itemized WhatsApp order and becoming a repeat customer.
       </p>
 
-      {/* 10-Step Interactive Visual Flow Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3.5 mb-10">
-        {steps.map((step, index) => {
-          const Icon = step.icon;
-          return (
-            <div
-              key={index}
-              className="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between group relative overflow-hidden"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-bold text-slate-400">
-                    STEP {step.num}
-                  </span>
-                  <div className={`p-1.5 rounded-lg bg-white/5 border ${step.accent}`}>
-                    <Icon className="w-3.5 h-3.5" />
+      {/* Visually Simple Linear Pipeline */}
+      <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-b from-[#0B152B] via-[#070E1E] to-[#040812] border border-white/10 shadow-2xl space-y-8">
+        {/* Top: Channels Level */}
+        <div className="text-center space-y-3">
+          <div className="text-[11px] font-mono uppercase tracking-widest text-slate-400 font-bold">
+            ACQUISITION & TRAFFIC CHANNELS
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-2.5">
+            {channelSources.map((ch, idx) => (
+              <span
+                key={idx}
+                className="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs sm:text-sm font-mono font-bold text-slate-200 shadow-sm"
+              >
+                {ch}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Down Arrow Indicator */}
+        <div className="flex justify-center text-blue-400">
+          <div className="w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+            <ArrowDown className="w-4 h-4" />
+          </div>
+        </div>
+
+        {/* Destination: Big Deals */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-2xl bg-amber-400 text-slate-950 font-black font-heading text-lg sm:text-xl tracking-wide shadow-lg shadow-amber-500/20">
+            <span>BIG DEALS DIGITAL COMMERCE</span>
+          </div>
+        </div>
+
+        {/* Down Arrow Indicator */}
+        <div className="flex justify-center text-amber-400">
+          <div className="w-8 h-8 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center">
+            <ArrowDown className="w-4 h-4" />
+          </div>
+        </div>
+
+        {/* Customer Steps: Discover -> Browse -> Compare -> Cart -> WhatsApp Order -> Purchase -> Return / Repeat */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-3 pt-2">
+          {journeySteps.map((step, idx) => {
+            const Icon = step.icon;
+            const isOrder = step.title.includes('WhatsApp');
+            const isPurchase = step.title === 'Purchase';
+            return (
+              <div
+                key={idx}
+                className={`p-4 rounded-2xl border flex flex-col justify-between text-center relative ${
+                  isOrder
+                    ? 'bg-emerald-950/40 border-emerald-500/40'
+                    : isPurchase
+                    ? 'bg-blue-950/40 border-blue-500/40'
+                    : 'bg-slate-900/70 border-slate-800'
+                }`}
+              >
+                <div>
+                  <div className="w-8 h-8 rounded-xl mx-auto flex items-center justify-center mb-2 bg-white/5 text-white">
+                    <Icon className="w-4 h-4" />
                   </div>
+                  <div className="text-xs font-mono text-slate-500 mb-1">0{idx + 1}</div>
+                  <h4
+                    className={`font-bold text-xs sm:text-sm font-heading mb-1 ${
+                      isOrder ? 'text-emerald-300' : isPurchase ? 'text-blue-300' : 'text-white'
+                    }`}
+                  >
+                    {step.title}
+                  </h4>
+                  <p className="text-[11px] text-slate-400 leading-snug">{step.desc}</p>
                 </div>
-
-                <h4 className="text-sm font-bold text-white font-heading tracking-wide mb-1">
-                  {step.title}
-                </h4>
-                <div className="text-[11px] font-mono text-amber-400/90 mb-2.5">
-                  {step.subtitle}
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  {step.desc}
-                </p>
               </div>
-
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-slate-700 pointer-events-none">
-                  <ArrowRight className="w-3 h-3" />
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Credibility & Expectation Setting Notice */}
-      <div className="p-5 rounded-xl bg-white/[0.02] border border-white/10 text-xs text-slate-400 flex items-start sm:items-center gap-3">
-        <div className="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0 mt-1 sm:mt-0" />
-        <div>
-          <span className="font-semibold text-slate-300">Infrastructure Note: </span>
-          The proposed system provides the technical foundation and frictionless user experience required for this sequence. Final customer conversion and volume depend on marketing reach, offer relevance, and local retail operations.
+            );
+          })}
         </div>
       </div>
     </section>

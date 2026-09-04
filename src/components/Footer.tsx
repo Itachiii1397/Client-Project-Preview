@@ -152,7 +152,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onSelectCategory }) 
                 <span>Transparent WhatsApp Checkout</span>
               </li>
               <li>
-                <span>Pre-Dispatch Verification</span>
+                <span>Pre-Dispatch Inspection</span>
               </li>
               <li>
                 <span>Shipping & Tracking Support</span>

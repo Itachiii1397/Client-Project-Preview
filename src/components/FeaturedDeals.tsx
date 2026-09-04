@@ -78,7 +78,7 @@ export const FeaturedDeals: React.FC<FeaturedDealsProps> = ({ onQuickView, onExp
             onClick={onExploreMore}
             className="px-8 py-4 rounded-xl bg-[#172554] hover:bg-[#1E3A8A] text-white font-bold text-sm uppercase tracking-wider border border-[#3B82F6]/50 shadow-lg transition-all inline-flex items-center gap-2 cursor-pointer hover:border-[#E5A919]"
           >
-            <span>Explore Full Catalog (64 Verified Products)</span>
+            <span>Explore Full Catalog (64 Products)</span>
             <ArrowRight className="w-4 h-4 text-[#E5A919]" />
           </button>
         </div>

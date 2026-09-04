@@ -13,7 +13,7 @@ export const FutureGrowth: React.FC = () => {
     },
     {
       title: 'Instant Price Check Engine',
-      desc: 'Automated deal lookup that compares your desired branded product against verified market reference benchmarks.',
+      desc: 'Automated deal lookup that compares your desired branded product against standard market reference benchmarks.',
       tag: 'COMING SOON',
       icon: Zap,
       color: 'text-[#E5A919]',

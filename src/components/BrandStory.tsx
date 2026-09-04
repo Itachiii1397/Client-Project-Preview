@@ -19,7 +19,7 @@ export const BrandStory: React.FC = () => {
     {
       num: '03',
       title: 'PRICE',
-      desc: 'Transparent markdown calculated against verified market reference benchmarks.',
+      desc: 'Transparent markdown calculated against standard market reference benchmarks.',
       icon: Sparkles,
     },
     {
@@ -57,7 +57,7 @@ export const BrandStory: React.FC = () => {
     },
     {
       title: 'PRODUCT-LEVEL SAVINGS',
-      desc: 'Real, mathematical savings calculated on each deal to guarantee consumer value.',
+      desc: 'Real, mathematical savings calculated on each deal to deliver consumer value.',
       icon: Sparkles,
       color: 'text-[#93C5FD]',
     },

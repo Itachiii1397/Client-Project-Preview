@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, Sparkles, ArrowRight, ShieldCheck, HelpCircle } from 'lucide-react';
+import { Check, Sparkles, HelpCircle } from 'lucide-react';
 import { INVESTMENT_TIERS } from '../../data/proposalData';
 
 interface InvestmentSectionProps {
@@ -8,27 +8,30 @@ interface InvestmentSectionProps {
 
 export const InvestmentSection: React.FC<InvestmentSectionProps> = ({ onSelectTier }) => {
   return (
-    <section id="investment" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Eyebrow */}
       <div className="flex items-center gap-2 mb-3">
         <span className="text-xs font-mono font-semibold uppercase tracking-widest text-blue-400">
-          SECTION 09 · COMMERCIAL TRANSPARENCY
+          SECTION 08 · DIGITAL COMMERCE INVESTMENT
         </span>
       </div>
 
       {/* Main Headline */}
       <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-heading mb-4 max-w-3xl">
-        THREE WAYS TO START.
+        Three Tailored Project Options.
       </h2>
 
-      <p className="text-base sm:text-lg text-slate-300 max-w-3xl mb-4 leading-relaxed">
-        Transparent, fixed one-time project tiers tailored to Big Deals' operational readiness. No hidden charges, no fabricated discount gimmicks, and no lock-in.
+      <p className="text-base sm:text-lg text-slate-300 max-w-3xl mb-6 leading-relaxed">
+        Transparent, fixed one-time project investments tailored to Big Deals' current operational requirements. No hidden charges or fabricated discount gimmicks.
       </p>
 
-      {/* Honest Advisory Sentence */}
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-950/40 border border-blue-500/30 text-xs sm:text-sm text-blue-300 mb-12">
-        <HelpCircle className="w-4 h-4 text-blue-400 flex-shrink-0" />
-        <span>INNITYX recommends choosing the level that matches Big Deals' current operational readiness — not simply the largest package.</span>
+      {/* Explicit Advisory Statement as Required */}
+      <div className="p-4 sm:p-5 rounded-2xl bg-blue-950/40 border border-blue-500/30 text-xs sm:text-sm text-blue-200 mb-12 flex items-start gap-3 max-w-4xl">
+        <HelpCircle className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+        <div className="leading-relaxed">
+          <strong className="text-white block font-heading text-sm mb-0.5">Advisory Note on Scope Selection:</strong>
+          <span>The right starting point depends on Big Deals' current requirements. Big Deals does not need to purchase the largest option simply because it exists.</span>
+        </div>
       </div>
 
       {/* Three Tier Cards Grid */}
@@ -38,7 +41,7 @@ export const InvestmentSection: React.FC<InvestmentSectionProps> = ({ onSelectTi
           return (
             <div
               key={tier.id}
-              className={`rounded-3xl p-8 flex flex-col justify-between transition-all relative ${
+              className={`rounded-3xl p-7 sm:p-8 flex flex-col justify-between transition-all relative ${
                 isRec
                   ? 'bg-gradient-to-b from-[#0C1833] via-[#081226] to-[#050C1A] border-2 border-amber-500/60 shadow-2xl shadow-amber-500/10 lg:-translate-y-2'
                   : 'bg-slate-900/60 border border-slate-800 hover:border-slate-700'
@@ -56,9 +59,13 @@ export const InvestmentSection: React.FC<InvestmentSectionProps> = ({ onSelectTi
                 {/* Stage & Option Label */}
                 <div className="flex items-center justify-between gap-2 mb-2 font-mono">
                   <span className="text-xs font-bold text-slate-400">{tier.optionLabel}</span>
-                  <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded ${
-                    isRec ? 'bg-amber-400/10 text-amber-300 border border-amber-400/20' : 'bg-white/5 text-slate-300'
-                  }`}>
+                  <span
+                    className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded ${
+                      isRec
+                        ? 'bg-amber-400/10 text-amber-300 border border-amber-400/20'
+                        : 'bg-white/5 text-slate-300'
+                    }`}
+                  >
                     {tier.stageLabel}
                   </span>
                 </div>
@@ -87,7 +94,7 @@ export const InvestmentSection: React.FC<InvestmentSectionProps> = ({ onSelectTi
                 {/* Deliverables Checklist */}
                 <div className="space-y-3 mb-8">
                   <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold">
-                    Included Deliverables:
+                    Included Scope:
                   </div>
                   <ul className="space-y-2.5">
                     {tier.features.map((feat, idx) => (
@@ -101,7 +108,7 @@ export const InvestmentSection: React.FC<InvestmentSectionProps> = ({ onSelectTi
                         >
                           <Check className="w-2.5 h-2.5" />
                         </div>
-                        <span className={feat.startsWith('Everything') ? 'font-semibold text-white' : ''}>
+                        <span className={feat.startsWith('Everything') ? 'font-bold text-white' : ''}>
                           {feat}
                         </span>
                       </li>
@@ -110,10 +117,19 @@ export const InvestmentSection: React.FC<InvestmentSectionProps> = ({ onSelectTi
                 </div>
               </div>
 
-              {/* Bottom Note */}
-              <div className="pt-6 border-t border-white/10 text-[11px] font-mono text-slate-400 flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <span>Full code & asset ownership handed over upon launch.</span>
+              {/* Card Footer CTA */}
+              <div className="pt-6 border-t border-white/10">
+                <a
+                  href="#contact"
+                  onClick={() => onSelectTier && onSelectTier(tier.id)}
+                  className={`w-full py-3 rounded-xl font-bold text-xs sm:text-sm font-mono tracking-wide flex items-center justify-center transition-all ${
+                    isRec
+                      ? 'bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-lg shadow-amber-500/20'
+                      : 'bg-white/10 hover:bg-white/15 text-white'
+                  }`}
+                >
+                  SELECT {tier.name}
+                </a>
               </div>
             </div>
           );

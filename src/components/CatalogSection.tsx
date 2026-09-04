@@ -76,7 +76,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
             EXPLORE THE <span className="text-[#E5A919]">DEALS</span>
           </h2>
           <p className="mt-2 text-base text-slate-300">
-            Browse verified open-box & surplus inventory across all departments with instant WhatsApp ordering.
+            Browse open-box & surplus inventory across all departments with instant WhatsApp ordering.
           </p>
         </div>
 

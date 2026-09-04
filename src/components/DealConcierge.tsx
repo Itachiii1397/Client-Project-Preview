@@ -74,7 +74,7 @@ export const DealConcierge: React.FC<DealConciergeProps> = ({ onQuickView }) => 
             TELL US WHAT <span className="text-[#E5A919]">YOU NEED.</span>
           </h2>
           <p className="mt-3 text-base text-slate-300">
-            Tell us your budget or product type. We will match verified stock directly from our Big Deals catalog.
+            Tell us your budget or product type. We will match available items directly from our Big Deals catalog.
           </p>
         </div>
 
